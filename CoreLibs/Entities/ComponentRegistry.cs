@@ -24,6 +24,14 @@ public class ComponentRegistry : IComponentRegistry
         }
     }
 
+    public void UnregisterComponent(Type componentType, Entity entity)
+    {
+        if (_componentEntityAssociations.ContainsKey(componentType))
+        {
+            _componentEntityAssociations[componentType].Remove(entity);
+        }
+    }
+
     public List<Entity> GetEntitiesWithComponent<T>() where T : IComponent
     {
         var type = typeof(T);

@@ -1,4 +1,5 @@
-﻿using CoreLibs.Components;
+﻿using System.Collections;
+using CoreLibs.Components;
 
 namespace CoreLibs.Entities;
 
@@ -38,5 +39,19 @@ public class Entity
     public bool HasComponent<T>() where T : IComponent
     {
         return _components.ContainsKey(typeof(T));
+    }
+
+    public List<Type> GetComponents()
+    {
+        return _components.Keys.ToList();
+    }
+
+    public void RemoveAllComponents()
+    {
+        foreach (var componentType in _components.Keys.ToList()) // to list to avoid some collection modification issues
+        {
+            _componentRegistry.UnregisterComponent(componentType, this);
+        }
+        _components.Clear();
     }
 }
