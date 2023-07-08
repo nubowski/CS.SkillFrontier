@@ -1,4 +1,5 @@
-﻿using CoreLibs.Entities;
+﻿using CoreLibs.Components;
+using CoreLibs.Entities;
 using CoreLibs.Systems;
 using TestMyGame.Components;
 
@@ -6,24 +7,24 @@ namespace TestMyGame.Systems;
 
 public class HealthSystem : ISystem
 {
-    private readonly List<Entity> _entities;
+    private readonly IComponentRegistry _componentRegistry;
 
-    public HealthSystem(List<Entity> entities)
+    public HealthSystem(IComponentRegistry componentRegistry)
     {
-        _entities = entities;
+        _componentRegistry = componentRegistry;
     }
 
     public void Update(float deltaTime)
     {
-        foreach (var entity in _entities)
+        var entitiesWithHealth = _componentRegistry.GetEntitiesWithComponent<HealthComponent>();
+        
+        foreach (var entity in entitiesWithHealth)
         {
-            if (entity.HasComponent<HealthComponent>())
+            var health = entity.GetComponent<HealthComponent>();
+            if (health.CurrentHealth <= 0)
             {
-                var health = entity.GetComponent<HealthComponent>();
-                if (health.CurrentHealth <= 0)
-                {
-                    Console.WriteLine($"The Game is Over!");
-                }
+                
+                Console.WriteLine($"Entity {entity.Id} has died.");
             }
         }
     }
