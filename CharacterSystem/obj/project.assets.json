@@ -1,11 +1,30 @@
 {
   "version": 3,
   "targets": {
-    "net6.0": {}
+    "net6.0": {
+      "CoreLibs/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "compile": {
+          "bin/placeholder/CoreLibs.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/CoreLibs.dll": {}
+        }
+      }
+    }
   },
-  "libraries": {},
+  "libraries": {
+    "CoreLibs/1.0.0": {
+      "type": "project",
+      "path": "../CoreLibs/CoreLibs.csproj",
+      "msbuildProject": "../CoreLibs/CoreLibs.csproj"
+    }
+  },
   "projectFileDependencyGroups": {
-    "net6.0": []
+    "net6.0": [
+      "CoreLibs >= 1.0.0"
+    ]
   },
   "packageFolders": {
     "C:\\Users\\sgart\\.nuget\\packages\\": {},
@@ -38,7 +57,11 @@
       "frameworks": {
         "net6.0": {
           "targetAlias": "net6.0",
-          "projectReferences": {}
+          "projectReferences": {
+            "C:\\GrimBayGames\\_workingProjects\\SkillFrontier\\CoreLibs\\CoreLibs.csproj": {
+              "projectPath": "C:\\GrimBayGames\\_workingProjects\\SkillFrontier\\CoreLibs\\CoreLibs.csproj"
+            }
+          }
         }
       },
       "warningProperties": {
