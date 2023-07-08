@@ -14,6 +14,8 @@ public class DamageSystem : ISystem
         _componentRegistry = componentRegistry;
     }
 
+    public int Order { get; }
+
     public void Update(float deltaTime)
     {
         var entitiesWithDamage = _componentRegistry.GetEntitiesWithComponent<DamageComponent>();
