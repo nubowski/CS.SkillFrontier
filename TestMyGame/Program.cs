@@ -3,12 +3,15 @@ using CoreLibs.Systems;
 using TestMyGame.Components;
 using TestMyGame.Systems;
 
+// Create component registry instance
+var componentRegistry = new ComponentRegistry();
+
 // Create entities and systems
 var entities = new List<Entity>();
 var systems = new List<ISystem>();
 
 // Create an entity and add components
-var playerEntity = new Entity();
+var playerEntity = new Entity(componentRegistry);
 playerEntity.AddComponent(new HealthComponent {CurrentHealth = 100, MaxHealth = 100});
 
 entities.Add(playerEntity);

@@ -5,46 +5,38 @@ namespace CoreLibs.Entities;
 public class Entity
 {
     private static int _nextId = 0;
+    private readonly Dictionary<Type, IComponent> _components = new();
+    private readonly IComponentRegistry _componentRegistry;
 
-    public Entity()
+    public Entity(IComponentRegistry componentRegistry)
     {
-        Id = _nextId;
-        Components = new Dictionary<Type, IComponent>();
+        Id = _nextId++;
+        _componentRegistry = componentRegistry;
     }
     
     public int Id { get; }
-    public Dictionary<Type, IComponent> Components { get; private set; }
     
-
-    public void AddComponent(IComponent component)
+    
+    public void AddComponent<T>(T component) where T : IComponent
     {
-        var type = component.GetType();
-        if (Components.ContainsKey(type))
-            throw new InvalidOperationException($"Entity already contains component of type {type}.");
-        Components.Add(type, component);
+        _components[typeof(T)] = component;
+        _componentRegistry.RegisterComponent<T>(this);
     }
 
     public void RemoveComponent<T>() where T : IComponent
     {
-        var type = typeof(T);
-        if (!Components.ContainsKey(type))
-            throw new InvalidOperationException($"Entity does not contain component of type {type}.");
-        Components.Remove(type);
+        _components.Remove(typeof(T));
+        _componentRegistry.UnregisterComponent<T>(this);
+    }
+
+
+    public T GetComponent<T>() where T : IComponent
+    {
+        return _components.TryGetValue(typeof(T), out var component) ? (T) component : default;
     }
 
     public bool HasComponent<T>() where T : IComponent
     {
-        return Components.ContainsKey(typeof(T));
+        return _components.ContainsKey(typeof(T));
     }
-
-    public T GetComponent<T>() where T : IComponent
-    {
-        var type = typeof(T);
-        if (!Components.ContainsKey(type))
-        {
-            throw new InvalidOperationException($"Entity does not contain component of type {type}.");
-        }
-        return (T) Components[type];
-    }
-
 }
