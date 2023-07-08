@@ -1,5 +1,4 @@
-﻿using System.ComponentModel;
-using IComponent = CoreLibs.Components.IComponent;
+﻿using CoreLibs.Components;
 
 namespace CoreLibs.Entities;
 
@@ -9,10 +8,11 @@ public class Entity
 
     public Entity()
     {
-        ID = _nextId;
+        Id = _nextId;
+        Components = new Dictionary<Type, IComponent>();
     }
     
-    public int ID { get; }
+    public int Id { get; }
     public Dictionary<Type, IComponent> Components { get; private set; }
     
 
@@ -39,8 +39,12 @@ public class Entity
 
     public T GetComponent<T>() where T : IComponent
     {
-        if (Components.TryGetValue(typeof(T), out IComponent component)) 
-            return (T) component;
-        throw new InvalidOperationException($"Entity does not contain component of type {typeof(T)}.");
+        var type = typeof(T);
+        if (!Components.ContainsKey(type))
+        {
+            throw new InvalidOperationException($"Entity does not contain component of type {type}.");
+        }
+        return (T) Components[type];
     }
+
 }
