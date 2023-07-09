@@ -1,6 +1,8 @@
-﻿using CoreLibs.Entities;
+﻿using System.Text.Json;
+using CoreLibs.Entities;
 using CoreLibs.Events;
 using CoreLibs.Events.EventList;
+using CoreLibs.Serialization;
 using CoreLibs.Systems;
 using TestMyGame.Components;
 using TestMyGame.Systems;
@@ -38,10 +40,28 @@ eventManager.AddListener<EntityDestroyedEvent>(entityManager.OnEntityDestroy);
 // Sorting systems on its order
 systems = systems.OrderBy(system => system.Order).ToList();
 
-
 // The main game loop
 while (true)
 {
+    
+    // Use your existing components and entities
+    var originalEntity = entityManager.CreateEntity();
+    originalEntity.AddComponent(new HealthComponent {CurrentHealth = 100, MaxHealth = 100});
+    originalEntity.AddComponent(new DamageComponent { Damage = 10 });
+
+// Convert the entity to EntityData
+    var entityData = originalEntity.ToEntityData();
+
+// Serialize and deserialize the EntityData
+    var serializer = new Serializer();
+    var deserializer = new Deserializer();
+    var serializedEntityData = serializer.Serialize(entityData);
+    var deserializedEntityData = deserializer.Deserialize(serializedEntityData);
+
+// Print out the serialized and deserialized EntityData
+    Console.WriteLine("Serialized EntityData: " + serializedEntityData);
+    Console.WriteLine("Deserialized EntityData: " + deserializedEntityData.ToString());  // Assuming you have a suitable ToString method
+    
     foreach (var system in systems)
     {
         system.Update(1); // Temp pass the deltaTime as 1

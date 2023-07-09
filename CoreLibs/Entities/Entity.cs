@@ -1,4 +1,5 @@
 ﻿using System.Text.Json;
+using System.Text.Json.Serialization;
 using CoreLibs.Components;
 
 namespace CoreLibs.Entities;
@@ -22,6 +23,9 @@ public class Entity
     {
         _components[typeof(T)] = component;
         _componentRegistry.RegisterComponent<T>(this);
+        
+        // Log the component details after adding
+        Console.WriteLine($"Component added: {component}");
     }
 
     public void RemoveComponent<T>() where T : IComponent
@@ -33,7 +37,7 @@ public class Entity
 
     public T GetComponent<T>() where T : IComponent
     {
-        return _components.TryGetValue(typeof(T), out var component) ? (T) component : default;
+        return (_components.TryGetValue(typeof(T), out var component) ? (T) component : default)!;
     }
 
     public bool HasComponent<T>() where T : IComponent
@@ -57,7 +61,7 @@ public class Entity
     
     public EntityData ToEntityData()
     {
-        var entityData = new EntityData
+        var data = new EntityData
         {
             Id = Id,
             Components = new Dictionary<string, string>()
@@ -65,22 +69,27 @@ public class Entity
 
         foreach (var component in _components)
         {
-            var serializedComponent = JsonSerializer.Serialize(component.Value);
-            // Include the assembly qualified name
-            entityData.Components[component.Key.AssemblyQualifiedName] = serializedComponent;
+            var serializedComponent = JsonSerializer.Serialize(component.Value, component.Value.GetType());
+            data.Components.Add(component.Key.AssemblyQualifiedName, serializedComponent);
         }
-        return entityData;
+
+        return data;
     }
     
     public void FromEntityData(EntityData entityData)
     {
         Id = entityData.Id;
 
+        var options = new JsonSerializerOptions
+        {
+            DefaultIgnoreCondition = JsonIgnoreCondition.Never
+        };
+
         foreach (var component in entityData.Components)
         {
             var componentType = Type.GetType(component.Key, true); // This will throw an exception if the type can't be found
-            var deserializedComponent = (IComponent)JsonSerializer.Deserialize(component.Value, componentType);
-            _components[componentType] = deserializedComponent;
+            var deserializedComponent = JsonSerializer.Deserialize(component.Value, componentType, options);
+            _components[componentType] = (IComponent)deserializedComponent;
         }
     }
 }
