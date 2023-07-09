@@ -7,13 +7,11 @@ namespace CoreLibs.Entities;
 public class EntityManager
 {
     private List<Entity> _entities = new List<Entity>();
-    private EntityManager _entityManager;
     private EventManager _eventManager;
     private IComponentRegistry _componentRegistry;
 
-    public EntityManager(EntityManager entityManager, IComponentRegistry componentRegistry, EventManager eventManager)
+    public EntityManager(IComponentRegistry componentRegistry, EventManager eventManager)
     {
-        _entityManager = entityManager;
         _componentRegistry = componentRegistry;
         _eventManager = eventManager;
     }
@@ -31,5 +29,12 @@ public class EntityManager
         entity.RemoveAllComponents();
         _entities.Remove(entity);
         _eventManager.Emit(new EntityDestroyedEvent(entity));
+    }
+    
+    
+
+    public void OnEntityDestroy(EntityDestroyedEvent entityDestroyedEvent)
+    {
+        Console.WriteLine($"The entity {entityDestroyedEvent.Entity.Id} is destroyed!");
     }
 }

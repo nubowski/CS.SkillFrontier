@@ -1,4 +1,6 @@
 ﻿using CoreLibs.Components;
+using CoreLibs.Entities;
+using CoreLibs.Events;
 using CoreLibs.Systems;
 using TestMyGame.Components;
 
@@ -7,27 +9,35 @@ namespace TestMyGame.Systems;
 public class DamageSystem : ISystem
 {
     private readonly IComponentRegistry _componentRegistry;
+    private EventManager _eventManager;
 
 
-    public DamageSystem(IComponentRegistry componentRegistry)
+    public DamageSystem(IComponentRegistry componentRegistry, EventManager eventManager)
     {
         _componentRegistry = componentRegistry;
+        _eventManager = eventManager;
     }
 
-    public int Order { get; }
+    public int Order => 1;
 
     public void Update(float deltaTime)
     {
         var entitiesWithDamage = _componentRegistry.GetEntitiesWithComponent<DamageComponent>();
-
-        foreach (var entity in entitiesWithDamage)
+        var entitiesWithHealth = _componentRegistry.GetEntitiesWithComponent<HealthComponent>();
+            
+        foreach (var attacker in entitiesWithDamage)
         {
-            var damage = entity.GetComponent<DamageComponent>();
-            var health = entity.GetComponent<HealthComponent>();
-            if (health != null)
+            var damageComponent = attacker.GetComponent<DamageComponent>();
+                
+            foreach (var defender in entitiesWithHealth)
             {
-                health.CurrentHealth -= damage.Damage;
-                Console.WriteLine($"Entity {entity.Id} took {damage.Damage} damage. Current health: {health.CurrentHealth}");
+                if (defender == attacker) continue; // Skip self
+
+                var healthComponent = defender.GetComponent<HealthComponent>();
+                healthComponent.CurrentHealth -= damageComponent.Damage;
+                    
+                Console.WriteLine($"Entity {attacker.Id} attacked entity {defender.Id} for {damageComponent.Damage} damage. Defender health: {healthComponent.CurrentHealth}");
+                
             }
         }
     }

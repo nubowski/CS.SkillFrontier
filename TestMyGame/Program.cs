@@ -1,24 +1,43 @@
 ﻿using CoreLibs.Entities;
+using CoreLibs.Events;
+using CoreLibs.Events.EventList;
 using CoreLibs.Systems;
 using TestMyGame.Components;
 using TestMyGame.Systems;
 
 // Create component registry instance
 var componentRegistry = new ComponentRegistry();
+var eventManager = new EventManager();
 
 // Create entities and systems
-var entities = new List<Entity>();
+var entityManager = new EntityManager(componentRegistry, eventManager);
 var systems = new List<ISystem>();
 
 // Create an entity and add components
-var playerEntity = new Entity(componentRegistry);
+// Temp rnd damage for the showcase
+Random rnd = new Random();
+var playerEntity = entityManager.CreateEntity();
 playerEntity.AddComponent(new HealthComponent {CurrentHealth = 100, MaxHealth = 100});
+playerEntity.AddComponent(new DamageComponent { Damage = rnd.Next(1, 11) });
 
-entities.Add(playerEntity);
+var enemyEntity = entityManager.CreateEntity();
+enemyEntity.AddComponent(new HealthComponent {CurrentHealth = 100, MaxHealth = 100});
+enemyEntity.AddComponent(new DamageComponent { Damage = rnd.Next(1, 11) });
+
 
 // Create systems and add to the system list (HUB like)
-var healthSystem = new HealthSystem(entities);
+var damageSystem = new DamageSystem(componentRegistry, eventManager);
+systems.Add(damageSystem);
+
+var healthSystem = new HealthSystem(componentRegistry, eventManager, entityManager);
 systems.Add(healthSystem);
+
+// Create entity manager and emit to EntityDestroyedEvent
+eventManager.AddListener<EntityDestroyedEvent>(entityManager.OnEntityDestroy);
+
+// Sorting systems on its order
+systems = systems.OrderBy(system => system.Order).ToList();
+
 
 // The main game loop
 while (true)
@@ -28,19 +47,24 @@ while (true)
         system.Update(1); // Temp pass the deltaTime as 1
     }
     
-    // Just primitive game loop for checking if all is working
-    var playerHealth = playerEntity.GetComponent<HealthComponent>();
-    Console.WriteLine($"Player health: {playerHealth.CurrentHealth}");
-
-    if (playerHealth.CurrentHealth <= 0)
+    // Check if playerEntity or enemyEntity exists and has HealthComponent
+    if (playerEntity != null && playerEntity.HasComponent<HealthComponent>())
     {
-        Console.WriteLine($"You have 0 health points!");
-        break;
+        var playerHealth = playerEntity.GetComponent<HealthComponent>();
+        Console.WriteLine($"Player health: {playerHealth.CurrentHealth}");
+        if (playerHealth.CurrentHealth <= 0)
+        {
+            Console.WriteLine($"You have 0 health points!");
+            break;
+        }
+    }
+    
+    if (enemyEntity != null && enemyEntity.HasComponent<HealthComponent>())
+    {
+        var enemyHealth = enemyEntity.GetComponent<HealthComponent>();
+        Console.WriteLine($"Enemy health: {enemyHealth.CurrentHealth}");
     }
     
     // pause for input
     Console.ReadKey();
-    
-    // some damage imitation
-    playerHealth.CurrentHealth -= 10;
 }
