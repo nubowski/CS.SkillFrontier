@@ -6,6 +6,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CharacterSystem", "Characte
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestMyGame", "TestMyGame\TestMyGame.csproj", "{041D9192-D7B7-4532-970A-85B66ABDB58C}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Test", "Test", "{FE6B29F4-3B4A-453B-AF25-6E5D0A7FD48D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CoreLibs.Test", "Test\CoreLibs.Test\CoreLibs.Test.csproj", "{9D425D98-9872-43CB-8788-AB12AC23A960}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -24,7 +28,12 @@ Global
 		{041D9192-D7B7-4532-970A-85B66ABDB58C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{041D9192-D7B7-4532-970A-85B66ABDB58C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{041D9192-D7B7-4532-970A-85B66ABDB58C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9D425D98-9872-43CB-8788-AB12AC23A960}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9D425D98-9872-43CB-8788-AB12AC23A960}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9D425D98-9872-43CB-8788-AB12AC23A960}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9D425D98-9872-43CB-8788-AB12AC23A960}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
+		{9D425D98-9872-43CB-8788-AB12AC23A960} = {FE6B29F4-3B4A-453B-AF25-6E5D0A7FD48D}
 	EndGlobalSection
 EndGlobal
