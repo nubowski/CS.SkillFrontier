@@ -16,9 +16,9 @@ public class EntityManager
         _eventManager = eventManager;
     }
 
-    public Entity CreateEntity()
+    public Entity CreateEntity(int? id = null)
     {
-        var entity = new Entity(_componentRegistry);
+        var entity = new Entity(_componentRegistry, id);
         _entities.Add(entity);
         return entity;
     }
@@ -31,7 +31,12 @@ public class EntityManager
         _eventManager.Emit(new EntityDestroyedEvent(entity));
     }
     
-    
+    public Entity CreateEntityFromData(EntityData entityData)
+    {
+        var entity = CreateEntity();
+        entity.FromEntityData(entityData);
+        return entity;
+    }
 
     public void OnEntityDestroy(EntityDestroyedEvent entityDestroyedEvent)
     {

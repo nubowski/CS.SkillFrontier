@@ -2,6 +2,7 @@
 
 namespace TestMyGame.Components;
 
+[Serializable]
 public class HealthComponent : IComponent
 {
     public int MaxHealth { get; set; }
