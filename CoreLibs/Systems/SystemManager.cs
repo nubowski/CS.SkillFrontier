@@ -21,4 +21,9 @@ public class SystemManager
             system.Update(deltaTime);
         }
     }
+    
+    public T GetSystem<T>() where T : ISystem
+    {
+        return (T) _systems.FirstOrDefault(system => system is T);
+    }
 }

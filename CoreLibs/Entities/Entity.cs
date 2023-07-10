@@ -44,6 +44,11 @@ public class Entity
     {
         return _components.ContainsKey(typeof(T));
     }
+    
+    public bool HasComponent(Type componentType)
+    {
+        return _components.ContainsKey(componentType);
+    }
 
     public List<Type> GetComponents()
     {

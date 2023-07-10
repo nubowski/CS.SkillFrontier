@@ -8,6 +8,7 @@
     </PropertyGroup>
 
     <ItemGroup>
+      <ProjectReference Include="..\AsciiRenderer\AsciiRenderer.csproj" />
       <ProjectReference Include="..\CoreLibs\CoreLibs.csproj" />
     </ItemGroup>
 

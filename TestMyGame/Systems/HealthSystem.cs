@@ -6,24 +6,23 @@ using TestMyGame.Components;
 
 namespace TestMyGame.Systems;
 
-public class HealthSystem : ISystem
+public class HealthSystem : BaseSystem
 {
     private readonly IComponentRegistry _componentRegistry;
-    private EventManager _eventManager;
     private EntityManager _entityManager;
 
-    public HealthSystem(IComponentRegistry componentRegistry, EventManager eventManager, EntityManager entityManager)
+    public HealthSystem(IComponentRegistry componentRegistry, EntityManager entityManager)
     {
         _componentRegistry = componentRegistry;
-        _eventManager = eventManager;
         _entityManager = entityManager;
+        ComponentFilter.MustHaveComponents.Add(typeof(HealthComponent));
     }
 
-    public int Order => 2;
+    public override int Order => 2;
 
-    public void Update(float deltaTime)
+    public override void Update(float deltaTime)
     {
-        var entitiesWithHealth = _componentRegistry.GetEntitiesWithComponent<HealthComponent>();
+        var entitiesWithHealth = _componentRegistry.GetEntitiesWithComponents(ComponentFilter);
         var entitiesToRemove = new List<Entity>();
 
         foreach (var entity in entitiesWithHealth)

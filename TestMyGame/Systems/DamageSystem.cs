@@ -1,5 +1,4 @@
 ﻿using CoreLibs.Components;
-using CoreLibs.Entities;
 using CoreLibs.Events;
 using CoreLibs.Systems;
 using TestMyGame.Components;
