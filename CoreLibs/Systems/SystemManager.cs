@@ -4,8 +4,13 @@ public class SystemManager
 {
     private SortedSet<ISystem> _systems = new SortedSet<ISystem>(new SystemComparer());
 
-    public void AddSystem(ISystem system)
+    public void AddSystem(ISystem system, int? order = null)
     {
+        if (order.HasValue)
+        {
+            system.Order = order.Value;
+        }
+
         _systems.Add(system);
     }
 

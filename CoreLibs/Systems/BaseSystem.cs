@@ -6,7 +6,7 @@ public abstract class BaseSystem : ISystem
 {
     
     protected ComponentFilter ComponentFilter { get; } = new ComponentFilter();
-    public abstract int Order { get; }
+    public virtual int Order { get; set; } // virtual and settable
     
     public abstract void Update(float deltaTime);
     
