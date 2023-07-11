@@ -42,4 +42,21 @@ public class EntityManager
     {
         Console.WriteLine($"The entity {entityDestroyedEvent.Entity.Id} is destroyed!");
     }
+
+    public List<Entity> GetEntitiesBasedOnFilter(ComponentFilter filter)
+    {
+        var entitiesWithComponents = new List<Entity>();
+
+        foreach (var entity in _entities)
+        {
+            if (filter.MayHaveComponents.Any(x => entity.HasComponent(x)) ||
+                filter.MustHaveComponents.All(x => entity.HasComponent(x)) &&
+                filter.MustNotHaveComponents.All(x => !entity.HasComponent(x)))
+            {
+                entitiesWithComponents.Add(entity);
+            }
+        }
+
+        return entitiesWithComponents;
+    }
 }

@@ -1,14 +1,27 @@
 ﻿using CoreLibs.Components;
+using CoreLibs.Entities;
 
 namespace CoreLibs.Systems;
 
 public abstract class BaseSystem : ISystem
 {
+    protected EntityManager _entityManager;
+    public ComponentFilter ComponentFilter { get; } = new ComponentFilter();
+    public int Order { get; set; }
+
+    protected BaseSystem(EntityManager entityManager)
+    {
+        _entityManager = entityManager;
+    }
+
+    public virtual void Update(float deltaTime)
+    {
+        var entities = _entityManager.GetEntitiesBasedOnFilter(ComponentFilter);
+        foreach(var entity in entities)
+        {
+            ProcessEntity(entity, deltaTime);
+        }
+    }
     
-    protected ComponentFilter ComponentFilter { get; } = new ComponentFilter();
-    public virtual int Order { get; set; } // virtual and settable
-    
-    public abstract void Update(float deltaTime);
-    
-    // More common functionalities across systems can be added here.   
+    public abstract void ProcessEntity(Entity entity, float deltaTime);
 }

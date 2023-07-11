@@ -7,23 +7,29 @@ namespace TestMyGame.Systems.CharacterCreation;
 public class CharacterCreationSystem : BaseSystem
 {
     private readonly CharacterFactory _characterFactory;
-    private readonly EntityManager _entityManager;
+    private bool _characterCreated = false;
 
-    public CharacterCreationSystem(CharacterFactory characterFactory, EntityManager entityManager)
+    public CharacterCreationSystem(CharacterFactory characterFactory, EntityManager entityManager) : base(entityManager)
     {
         _characterFactory = characterFactory;
-        _entityManager = entityManager;
+        ComponentFilter.MustHaveComponents.Add(typeof(NameComponent));
+        ComponentFilter.MustHaveComponents.Add(typeof(RaceComponent));
+        ComponentFilter.MustHaveComponents.Add(typeof(GenderComponent));
     }
 
     public override void Update(float deltaTime)
     {
-        Console.WriteLine("Press 'c' to create a new character.");
-
-        var key = Console.ReadKey(true);
-
-        if (key.KeyChar == 'c')
+        if (!_characterCreated)
         {
-            CreateCharacter();
+            Console.WriteLine("Press 'c' to create a new character.");
+
+            var key = Console.ReadKey(true);
+
+            if (key.KeyChar == 'c')
+            {
+                CreateCharacter();
+                _characterCreated = true;
+            }
         }
     }
 
@@ -47,5 +53,10 @@ public class CharacterCreationSystem : BaseSystem
         character.GetComponent<GenderComponent>().Gender = gender;
         
         Console.WriteLine($"{name} the {race} {gender} was created!");
+    }
+
+    public override void ProcessEntity(Entity entity, float deltaTime)
+    {
+        // This system doesn't process entities => Empty
     }
 }

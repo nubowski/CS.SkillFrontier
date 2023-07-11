@@ -1,6 +1,7 @@
 ﻿using AsciiRenderer.Components;
 using AsciiRenderer.Interfaces;
 using CoreLibs.Components;
+using CoreLibs.Entities;
 using CoreLibs.Systems;
 
 namespace AsciiRenderer.Systems;
@@ -17,7 +18,7 @@ public class AsciiRendererSystem : BaseSystem
         ComponentFilter.MustHaveComponents.Add(typeof(RenderableComponent));
     }
 
-    public override int Order => 3; // Set the order based on your needs
+    public int Order => 3; // Set the order based on your needs
 
     public override void Update(float deltaTime)
     {
@@ -28,5 +29,10 @@ public class AsciiRendererSystem : BaseSystem
             var renderableComponent = entity.GetComponent<RenderableComponent>();
             _asciiRenderer.Draw(renderableComponent.Character, renderableComponent.X, renderableComponent.Y);
         }
+    }
+
+    public override void ProcessEntity(Entity entity, float deltaTime)
+    {
+        throw new NotImplementedException();
     }
 }
