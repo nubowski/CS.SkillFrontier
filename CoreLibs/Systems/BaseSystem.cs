@@ -8,6 +8,7 @@ public abstract class BaseSystem : ISystem
     protected EntityManager _entityManager;
     public ComponentFilter ComponentFilter { get; } = new ComponentFilter();
     public int Order { get; set; }
+    public virtual bool Enabled { get; set; } = true; // all systems are enabled by default
 
     protected BaseSystem(EntityManager entityManager)
     {

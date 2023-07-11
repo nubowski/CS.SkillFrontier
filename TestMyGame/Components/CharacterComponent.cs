@@ -2,7 +2,7 @@
 
 namespace TestMyGame.Components;
 
-public class PlayerComponent : IComponent
+public class CharacterComponent : IComponent
 {
     // This is just a marker component
 }
