@@ -1,4 +1,5 @@
 ﻿using CoreLibs.Entities;
+using CoreLibs.Events;
 using CoreLibs.Systems;
 using TestMyGame.Components;
 
@@ -7,9 +8,9 @@ namespace TestMyGame.Systems.CharacterCreation;
 public class CharacterCreationSystem : BaseSystem
 {
     private readonly CharacterFactory _characterFactory;
-    private bool _characterCreated = false;
+    public bool _characterCreated = false;
 
-    public CharacterCreationSystem(CharacterFactory characterFactory, EntityManager entityManager) : base(entityManager)
+    public CharacterCreationSystem(CharacterFactory characterFactory, EntityManager entityManager, EventManager eventManager) : base(entityManager, eventManager)
     {
         _characterFactory = characterFactory;
         ComponentFilter.MustHaveComponents.Add(typeof(NameComponent));

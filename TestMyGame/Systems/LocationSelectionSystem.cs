@@ -1,4 +1,5 @@
 ﻿using CoreLibs.Entities;
+using CoreLibs.Events;
 using CoreLibs.Systems;
 using TestMyGame.Components;
 
@@ -6,7 +7,7 @@ namespace TestMyGame.Systems;
 
 public class LocationSelectionSystem : BaseSystem
 {
-    public LocationSelectionSystem(EntityManager entityManager) : base(entityManager)
+    public LocationSelectionSystem(EntityManager entityManager, EventManager eventManager) : base(entityManager, eventManager)
     {
         _entityManager = entityManager;
         

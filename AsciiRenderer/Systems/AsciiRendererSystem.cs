@@ -1,6 +1,7 @@
 ﻿using AsciiRenderer.Components;
 using AsciiRenderer.Interfaces;
 using CoreLibs.Entities;
+using CoreLibs.Events;
 using CoreLibs.Systems;
 
 namespace AsciiRenderer.Systems;
@@ -9,8 +10,8 @@ public class AsciiRendererSystem : BaseSystem
 {
     private readonly IAsciiRenderer _asciiRenderer;
 
-    public AsciiRendererSystem(EntityManager entityManager, IAsciiRenderer asciiRenderer) 
-        : base(entityManager)
+    public AsciiRendererSystem(EntityManager entityManager, IAsciiRenderer asciiRenderer, EventManager eventManager) 
+        : base(entityManager, eventManager)
     {
         _asciiRenderer = asciiRenderer;
         ComponentFilter.MustHaveComponents.Add(typeof(RenderableComponent));
