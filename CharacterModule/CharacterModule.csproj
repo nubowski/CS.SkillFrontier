@@ -7,8 +7,7 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <Folder Include="Components" />
-      <Folder Include="Systems" />
+      <ProjectReference Include="..\CoreLibs\CoreLibs.csproj" />
     </ItemGroup>
 
 </Project>

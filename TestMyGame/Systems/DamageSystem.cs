@@ -17,7 +17,11 @@ public class DamageSystem : ISystem
         _eventManager = eventManager;
     }
 
-    public int Order => 1;
+    public int Order
+    {
+        get => 1;
+        set => throw new NotImplementedException();
+    }
 
     public void Update(float deltaTime)
     {
