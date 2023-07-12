@@ -52,30 +52,26 @@ public class ComponentRegistry : IComponentRegistry
     
     public List<Entity> GetEntitiesWithComponents(ComponentFilter filter)
     {
-        var entities = new List<Entity>();
+        // use a HashSet to eliminate duplicates.
+        var entities = new HashSet<Entity>();
 
         foreach (var componentType in filter.MustHaveComponents)
         {
             if (_componentEntityAssociations.ContainsKey(componentType))
             {
-                entities.AddRange(_componentEntityAssociations[componentType]);
+                // add entities that have all the required component types.
+                entities.IntersectWith(_componentEntityAssociations[componentType]);
             }
-        }
-
-        var filteredEntities = new List<Entity>(entities);
-
-        foreach (var entity in entities)
-        {
-            foreach (var componentType in filter.MustNotHaveComponents)
+            else
             {
-                if (entity.HasComponent(componentType))
-                {
-                    filteredEntities.Remove(entity);
-                    break;
-                }
+                // no entities - return an empty list.
+                return new List<Entity>();
             }
         }
 
-        return filteredEntities;
+        // Filter out entities that have any of the MustNotHaveComponents.
+        entities = new HashSet<Entity>(entities.Where(entity => !filter.MustNotHaveComponents.Any(entity.HasComponent)));
+
+        return entities.ToList();
     }
 }

@@ -19,9 +19,6 @@ public class CharacterFactory
     {
         var entity = _entityManager.CreateEntity();
 
-        // Maybe we should add `player` component later on on RUN not on instantiate process
-        entity.AddComponent(new PlayerComponent());
-        
         // STIMUL attributes
         entity.AddComponent(new StrengthAttributeComponent());
         entity.AddComponent(new ToughnessAttributeComponent());
@@ -31,6 +28,7 @@ public class CharacterFactory
         entity.AddComponent(new AgilityAttributeComponent());
 
         // Common components
+        entity.AddComponent(new CharacterComponent());
         entity.AddComponent(new HealthComponent());
         entity.AddComponent(new ExperienceComponent());
         entity.AddComponent(new LevelComponent());

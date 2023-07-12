@@ -53,6 +53,8 @@ public class CharacterCreationSystem : BaseSystem
         character.GetComponent<RaceComponent>().Race = race;
         character.GetComponent<GenderComponent>().Gender = gender;
         
+        character.AddComponent(new PlayerComponent());
+        
         Console.WriteLine($"{name} the {race} {gender} was created!");
     }
 
