@@ -21,6 +21,7 @@ var characterCreationSystem = new PlayerCharacterCreationSystem(characterFactory
 var locationFactory = new LocationFactory(entityManager);
 var locationCreationSystem = new LocationCreationSystem(locationFactory, entityManager, eventManager);
 var locationSelectionSystem = new LocationSelectionSystem(entityManager, eventManager);
+var locationActionSystem = new LocationActionSystem(entityManager, eventManager);
 var navigationSystem = new NavigationSystem(entityManager, eventManager);
 var actionSelectionSystem = new ActionSelectionSystem(entityManager, eventManager);
 var combatSystem = new CombatSystem(entityManager, eventManager);
@@ -32,6 +33,7 @@ var tooltipSystem = new TooltipSystem(entityManager, eventManager);
 world.AddSystem(characterCreationSystem);
 world.AddSystem(locationCreationSystem);
 world.AddSystem(locationSelectionSystem);
+world.AddSystem(locationActionSystem);
 world.AddSystem(navigationSystem);
 world.AddSystem(actionSelectionSystem); 
 world.AddSystem(combatSystem); 
