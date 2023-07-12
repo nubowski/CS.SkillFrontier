@@ -6,5 +6,13 @@
   {
     "name": "Haunted Castle",
     "description": "An ancient castle, rumored to be haunted by vengeful spirits."
+  },
+  {
+    "name": "Dragon's Den",
+    "description": "A treacherous cave dwelling where an ancient and powerful dragon resides."
+  },
+  {
+    "name": "Mystic River",
+    "description": "A serene river known for its magical healing properties."
   }
 ]

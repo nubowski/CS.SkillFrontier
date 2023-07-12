@@ -2,6 +2,7 @@
 using CoreLibs.Events;
 using CoreLibs.Events.EventList;
 using CoreLibs.Systems;
+using CoreLibs.Utilities;
 using TestMyGame.Components;
 
 namespace TestMyGame.Systems;
@@ -67,7 +68,7 @@ public class LocationSelectionSystem : BaseSystem
         }
         else
         {
-            Console.WriteLine("Invalid location selection.");
+            Logger.Log($"Invalid location selection.");
         }
     }
 
