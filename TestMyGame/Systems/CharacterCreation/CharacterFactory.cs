@@ -32,7 +32,7 @@ public class CharacterFactory
         entity.AddComponent(new HealthComponent());
         entity.AddComponent(new ExperienceComponent());
         entity.AddComponent(new LevelComponent());
-        entity.AddComponent(new LocationComponent());
+        entity.AddComponent(new PositionComponent());
         entity.AddComponent(new RaceComponent());
         entity.AddComponent(new NameComponent());
         entity.AddComponent(new GenderComponent());

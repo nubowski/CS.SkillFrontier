@@ -12,4 +12,18 @@
       <ProjectReference Include="..\CoreLibs\CoreLibs.csproj" />
     </ItemGroup>
 
+    <ItemGroup>
+      <Folder Include="Utility" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <None Update="Data\Locations.json">
+        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      </None>
+    </ItemGroup>
+
 </Project>

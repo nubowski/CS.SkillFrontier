@@ -1,5 +1,6 @@
 ﻿using CoreLibs.Entities;
 using CoreLibs.Events;
+using CoreLibs.Events.EventList;
 using CoreLibs.Systems;
 using TestMyGame.Components;
 
@@ -56,6 +57,7 @@ public class CharacterCreationSystem : BaseSystem
         character.AddComponent(new PlayerComponent());
         
         Console.WriteLine($"{name} the {race} {gender} was created!");
+        _eventManager.Emit(new CharacterCreationFinishedEvent(character));
     }
 
     public override void ProcessEntity(Entity entity, float deltaTime)

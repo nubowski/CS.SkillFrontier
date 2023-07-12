@@ -4,6 +4,7 @@ using CoreLibs.Events;
 using CoreLibs.Events.EventList;
 using TestMyGame.Systems;
 using TestMyGame.Systems.CharacterCreation;
+using TestMyGame.Systems.LocationCreation;
 using TestMyGame.Systems.UI;
 
 // Initialize entities, components and events management
@@ -17,6 +18,8 @@ var world = new World(entityManager, componentRegistry, eventManager);
 // Initialize factory and systems
 var characterFactory = new CharacterFactory(entityManager, componentRegistry);
 var characterCreationSystem = new CharacterCreationSystem(characterFactory, entityManager, eventManager);
+var locationFactory = new LocationFactory(entityManager);
+var locationCreationSystem = new LocationCreationSystem(locationFactory, entityManager, eventManager);
 var locationSelectionSystem = new LocationSelectionSystem(entityManager, eventManager);
 var actionSelectionSystem = new ActionSelectionSystem(entityManager, eventManager);
 var combatSystem = new CombatSystem(entityManager, eventManager);
@@ -26,12 +29,14 @@ var tooltipSystem = new TooltipSystem(entityManager, eventManager);
 
 // Add systems to the world
 world.AddSystem(characterCreationSystem);
+world.AddSystem(locationCreationSystem);
 world.AddSystem(locationSelectionSystem); 
 world.AddSystem(actionSelectionSystem); 
 world.AddSystem(combatSystem); 
 world.AddSystem(tooltipSystem); 
 
 // Disable the systems that should not be active at the start of the game
+locationCreationSystem.Enabled = true;
 locationSelectionSystem.Enabled = false;
 actionSelectionSystem.Enabled = false;
 combatSystem.Enabled = false;

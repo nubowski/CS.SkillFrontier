@@ -15,7 +15,7 @@ public abstract class BaseSystem : ISystem
     protected BaseSystem(EntityManager entityManager, EventManager eventManager)
     {
         _entityManager = entityManager;
-        _eventManager = _eventManager;
+        _eventManager = eventManager;
     }
 
     public virtual void Update(float deltaTime)
