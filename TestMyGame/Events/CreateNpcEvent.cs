@@ -1,8 +1,14 @@
-﻿using CoreLibs.Events;
+﻿using CoreLibs.Entities;
+using CoreLibs.Events;
 
 namespace TestMyGame.Events;
 
 public class CreateNpcEvent : IEvent
 {
-    // some needed data to work with
+    public Entity Player { get; private set; }
+
+    public CreateNpcEvent(Entity player)
+    {
+        Player = player;
+    }
 }
