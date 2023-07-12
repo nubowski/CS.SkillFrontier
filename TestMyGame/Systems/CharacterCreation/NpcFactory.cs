@@ -4,18 +4,18 @@ using TestMyGame.Components.Stimul;
 
 namespace TestMyGame.Systems.CharacterCreation;
 
-public class CharacterFactory
+public class NpcFactory
 {
     private readonly EntityManager _entityManager;
     private readonly ComponentRegistry _componentRegistry;
 
-    public CharacterFactory(EntityManager entityManager, ComponentRegistry componentRegistry)
+    public NpcFactory(EntityManager entityManager, ComponentRegistry componentRegistry)
     {
         _entityManager = entityManager;
         _componentRegistry = componentRegistry;
     }
 
-    public Entity CreateCharacter()
+    public Entity CreateNpc()
     {
         var entity = _entityManager.CreateEntity();
 
@@ -31,13 +31,14 @@ public class CharacterFactory
         entity.AddComponent(new CharacterComponent());
         entity.AddComponent(new HealthComponent());
         entity.AddComponent(new LevelComponent());
-        entity.AddComponent(new RaceComponent());
-        entity.AddComponent(new GenderComponent());
-        entity.AddComponent(new GpsComponent());
+        // entity.AddComponent(new CharacterTypeComponent);
+
+        // NPC-specific components
+        entity.AddComponent(new NPCTypeComponent());
         entity.AddComponent(new PositionComponent());
 
-        // TODO make this grouped `by` or Im not sure how to handle dozens of different unclassified components on `live`
-        
+        // TODO: Add any other NPC-specific components
+
         return entity;
     }
 }

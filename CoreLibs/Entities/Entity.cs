@@ -1,6 +1,7 @@
 ﻿using System.Text.Json;
 using System.Text.Json.Serialization;
 using CoreLibs.Components;
+using CoreLibs.Utilities;
 
 namespace CoreLibs.Entities;
 
@@ -25,7 +26,7 @@ public class Entity
         _componentRegistry.RegisterComponent<T>(this);
         
         // Log the component details after adding
-        Console.WriteLine($"Component added: {component}");
+        Logger.Debug($"Component added: {component}");
     }
 
     public void RemoveComponent<T>() where T : IComponent

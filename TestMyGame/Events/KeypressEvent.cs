@@ -1,4 +1,6 @@
-﻿namespace CoreLibs.Events.EventList;
+﻿using CoreLibs.Events;
+
+namespace TestMyGame.Events;
 
 public class KeypressEvent : IEvent
 {

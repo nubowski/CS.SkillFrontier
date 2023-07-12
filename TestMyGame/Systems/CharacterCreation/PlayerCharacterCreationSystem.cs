@@ -1,16 +1,18 @@
 ﻿using CoreLibs.Entities;
 using CoreLibs.Events;
+using CoreLibs.Events.EventList;
 using CoreLibs.Systems;
 using TestMyGame.Components;
+using TestMyGame.Events;
 
 namespace TestMyGame.Systems.CharacterCreation;
 
-public class CharacterCreationSystem : BaseSystem
+public class PlayerCharacterCreationSystem : BaseSystem
 {
     private readonly CharacterFactory _characterFactory;
-    public bool _characterCreated = false;
+    public bool _playerCharacterCreated = false;
 
-    public CharacterCreationSystem(CharacterFactory characterFactory, EntityManager entityManager, EventManager eventManager) : base(entityManager, eventManager)
+    public PlayerCharacterCreationSystem(CharacterFactory characterFactory, EntityManager entityManager, EventManager eventManager) : base(entityManager, eventManager)
     {
         _characterFactory = characterFactory;
         ComponentFilter.MustHaveComponents.Add(typeof(NameComponent));
@@ -20,7 +22,7 @@ public class CharacterCreationSystem : BaseSystem
 
     public override void Update(float deltaTime)
     {
-        if (!_characterCreated)
+        if (!_playerCharacterCreated)
         {
             Console.WriteLine("Press 'c' to create a new character.");
 
@@ -29,7 +31,7 @@ public class CharacterCreationSystem : BaseSystem
             if (key.KeyChar == 'c')
             {
                 CreateCharacter();
-                _characterCreated = true;
+                _playerCharacterCreated = true;
             }
         }
     }
@@ -49,11 +51,15 @@ public class CharacterCreationSystem : BaseSystem
 
         var character = _characterFactory.CreateCharacter();
 
-        character.GetComponent<NameComponent>().Name = name;
         character.GetComponent<RaceComponent>().Race = race;
         character.GetComponent<GenderComponent>().Gender = gender;
+
+        character.AddComponent(new NameComponent(name));
+        character.AddComponent(new PlayerComponent());
+        character.AddComponent(new ExperienceComponent());
         
         Console.WriteLine($"{name} the {race} {gender} was created!");
+        _eventManager.Emit(new CharacterCreationFinishedEvent(character));
     }
 
     public override void ProcessEntity(Entity entity, float deltaTime)

@@ -4,6 +4,12 @@ namespace TestMyGame.Components;
 
 public class LocationComponent : IComponent
 {
-    public int X { get; set; }  // X position
-    public int Y { get; set; }  // Y position
+    public string Name { get; set; }
+    public string Description { get; set; }
+
+    public LocationComponent(string name, string description)
+    {
+        Name = name;
+        Description = description;
+    }
 }

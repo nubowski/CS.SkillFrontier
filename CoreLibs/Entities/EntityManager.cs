@@ -59,4 +59,10 @@ public class EntityManager
 
         return entitiesWithComponents;
     }
+    
+    public Entity GetEntityById(int id)
+    {
+        // assuming _entities is a List<Entity>
+        return _entities.First(e => e.Id == id);
+    }
 }

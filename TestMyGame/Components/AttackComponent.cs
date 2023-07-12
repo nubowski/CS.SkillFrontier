@@ -1,6 +1,8 @@
-﻿namespace TestMyGame.Components;
+﻿using CoreLibs.Components;
 
-public class AttackComponent
+namespace TestMyGame.Components;
+
+public class AttackComponent : IComponent
 {
     // This is just a marker component
 }
