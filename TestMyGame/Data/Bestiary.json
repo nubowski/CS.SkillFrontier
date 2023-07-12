@@ -1,0 +1,62 @@
+﻿[
+  {
+    "name": "Cave Goblin",
+    "description": "A small, green-skinned creature lurking in the shadows of the cave. Known for its agility and cunning.",
+    "race": "Goblin",
+    "combatPhrases": [
+      "Goblin snarls and lunges at you!",
+      "Goblin attempts to sneak around and attack you from behind!",
+      "Goblin tries to bite you with its sharp teeth!",
+      "Goblin swipes at you with its crude dagger!",
+      "Goblin looks scared but fights back with everything it has!"
+    ]
+  },
+  {
+    "name": "Forest Treant",
+    "description": "An ancient forest guardian that resembles a large tree. Possesses formidable strength and durability.",
+    "race": "Plant",
+    "combatPhrases": [
+      "Treant's branches sway menacingly as it advances!",
+      "Treant attempts to squash you under its massive trunk!",
+      "Leaves rustle as Treant launches a flurry of attacks!",
+      "Roots burst from the ground in an attempt to ensnare you!",
+      "Treant emits a deep, rumbling growl as it attacks!"
+    ]
+  },
+  {
+    "name": "Mountain Troll",
+    "description": "A towering troll native to mountainous areas. Highly resistant and incredibly strong, but slow and not particularly smart.",
+    "race": "Troll",
+    "combatPhrases": [
+      "Troll roars and charges at you with incredible force!",
+      "Troll swings its massive club, aiming to crush you!",
+      "Troll tries to grab you in its gigantic hands!",
+      "Troll's eyes glow with fury as it attacks relentlessly!",
+      "Troll bellows loudly, creating a deafening echo in the mountains!"
+    ]
+  },
+  {
+    "name": "Swamp Hydra",
+    "description": "A multi-headed beast lurking in swampy areas. Dangerous and resilient, but susceptible to fire.",
+    "race": "Beast",
+    "combatPhrases": [
+      "Hydra hisses and all of its heads attack at once!",
+      "Hydra spits venom in your direction!",
+      "A Hydra head tries to coil around you, while the others attack!",
+      "Hydra roars, and the swamp trembles under its might!",
+      "Every Hydra head seems to have its own tactic as they assault you!"
+    ]
+  },
+  {
+    "name": "Desert Scorpion",
+    "description": "A giant scorpion native to desert regions. Fast, agile and poisonous, but not very resistant.",
+    "race": "Insect",
+    "combatPhrases": [
+      "Scorpion lunges at you with its poisonous stinger!",
+      "Scorpion tries to grab you with its pincers!",
+      "Sand swirls around as Scorpion scuttles and attacks!",
+      "Scorpion burrows under the sand, then attempts a surprise attack!",
+      "Scorpion clicks its pincers menacingly as it circles you!"
+    ]
+  }
+]
