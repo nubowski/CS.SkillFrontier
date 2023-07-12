@@ -1,5 +1,4 @@
-﻿using System.ComponentModel;
-using CoreLibs.Entities;
+﻿using CoreLibs.Entities;
 using CoreLibs.Events;
 using CoreLibs.Events.EventList;
 using CoreLibs.Systems;
@@ -33,20 +32,13 @@ public class LocationActionSystem : BaseSystem
 
             var locationActionComponent = player.GetComponent<LocationActionComponent>();
 
-            switch (keypressEvent.Key)
+            locationActionComponent.Action = keypressEvent.Key switch
             {
-                case ConsoleKey.G:
-                    locationActionComponent.Action = LocationActionComponent.LocationAction.Grind;
-                    break;
-                
-                case ConsoleKey.S:
-                    locationActionComponent.Action = LocationActionComponent.LocationAction.Stop;
-                    break;
-                
-                case ConsoleKey.E:
-                    locationActionComponent.Action = LocationActionComponent.LocationAction.Explore; 
-                    break;
-            }
+                ConsoleKey.G => LocationActionComponent.LocationAction.Grind,
+                ConsoleKey.S => LocationActionComponent.LocationAction.Stop,
+                ConsoleKey.E => LocationActionComponent.LocationAction.Explore,
+                _ => locationActionComponent.Action
+            };
         }
     }
 

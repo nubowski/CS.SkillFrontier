@@ -8,7 +8,8 @@ public class LocationActionComponent : IComponent
     {
         Grind,
         Stop,
-        Explore
+        Explore,
+        Idle
     }
 
     public LocationAction Action { get; set; }
