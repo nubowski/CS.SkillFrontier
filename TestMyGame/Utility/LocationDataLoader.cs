@@ -1,6 +1,6 @@
 ﻿using Newtonsoft.Json;
 
-namespace TestMyGame.Systems.LocationCreation;
+namespace TestMyGame.Utility;
 
 public static class LocationDataLoader
 {

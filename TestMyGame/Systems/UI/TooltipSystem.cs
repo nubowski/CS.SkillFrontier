@@ -4,6 +4,7 @@ using CoreLibs.Events.EventList;
 using CoreLibs.Systems;
 using TestMyGame.Components;
 using TestMyGame.Components.Stimul;
+using TestMyGame.Events;
 
 namespace TestMyGame.Systems.UI;
 

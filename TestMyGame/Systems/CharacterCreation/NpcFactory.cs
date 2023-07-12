@@ -4,18 +4,18 @@ using TestMyGame.Components.Stimul;
 
 namespace TestMyGame.Systems.CharacterCreation;
 
-public class NPCFactory
+public class NpcFactory
 {
     private readonly EntityManager _entityManager;
     private readonly ComponentRegistry _componentRegistry;
 
-    public NPCFactory(EntityManager entityManager, ComponentRegistry componentRegistry)
+    public NpcFactory(EntityManager entityManager, ComponentRegistry componentRegistry)
     {
         _entityManager = entityManager;
         _componentRegistry = componentRegistry;
     }
 
-    public Entity CreateNPC(string npcType)
+    public Entity CreateNpc()
     {
         var entity = _entityManager.CreateEntity();
 

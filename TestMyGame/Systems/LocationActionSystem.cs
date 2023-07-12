@@ -3,6 +3,7 @@ using CoreLibs.Events;
 using CoreLibs.Events.EventList;
 using CoreLibs.Systems;
 using TestMyGame.Components;
+using TestMyGame.Events;
 
 namespace TestMyGame.Systems;
 
@@ -12,7 +13,7 @@ public class LocationActionSystem : BaseSystem
     {
         _eventManager.AddListener<KeypressEvent>(HandleKeypress);
         
-        ComponentFilter.MustHaveComponents.AddRange(new Type[]
+        ComponentFilter.MustHaveComponents.AddRange(new[]
         {
             typeof(PlayerComponent),
             typeof(PositionComponent)

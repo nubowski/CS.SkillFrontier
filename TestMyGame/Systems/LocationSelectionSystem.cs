@@ -4,6 +4,7 @@ using CoreLibs.Events.EventList;
 using CoreLibs.Systems;
 using CoreLibs.Utilities;
 using TestMyGame.Components;
+using TestMyGame.Events;
 
 namespace TestMyGame.Systems;
 
@@ -15,7 +16,7 @@ public class LocationSelectionSystem : BaseSystem
         _entityManager = entityManager;
         _eventManager.AddListener<KeypressEvent>(HandleKeypress);
         
-        ComponentFilter.MustHaveComponents.AddRange(new Type[]
+        ComponentFilter.MustHaveComponents.AddRange(new[]
         {
             typeof(LocationComponent),
         });

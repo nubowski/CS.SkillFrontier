@@ -1,6 +1,7 @@
 ﻿using CoreLibs.Entities;
+using CoreLibs.Events;
 
-namespace CoreLibs.Events.EventList;
+namespace TestMyGame.Events;
 
 public class LocationSelectedEvent : IEvent
 {

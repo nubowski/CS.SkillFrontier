@@ -3,6 +3,7 @@ using CoreLibs.Events;
 using CoreLibs.Events.EventList;
 using CoreLibs.Systems;
 using TestMyGame.Components;
+using TestMyGame.Events;
 
 namespace TestMyGame.Systems;
 
@@ -10,7 +11,7 @@ public class LocationActionProcessingSystem : BaseSystem
 {
     public LocationActionProcessingSystem(EntityManager entityManager, EventManager eventManager) : base(entityManager, eventManager)
     {
-        ComponentFilter.MustHaveComponents.AddRange(new Type []
+        ComponentFilter.MustHaveComponents.AddRange(new[]
         {
             typeof(PlayerComponent),
             typeof(PositionComponent),

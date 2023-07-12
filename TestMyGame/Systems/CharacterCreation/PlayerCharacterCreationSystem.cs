@@ -3,6 +3,7 @@ using CoreLibs.Events;
 using CoreLibs.Events.EventList;
 using CoreLibs.Systems;
 using TestMyGame.Components;
+using TestMyGame.Events;
 
 namespace TestMyGame.Systems.CharacterCreation;
 

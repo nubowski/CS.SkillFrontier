@@ -2,6 +2,7 @@
 using CoreLibs.Entities;
 using CoreLibs.Events;
 using CoreLibs.Events.EventList;
+using TestMyGame.Events;
 using TestMyGame.Systems;
 using TestMyGame.Systems.CharacterCreation;
 using TestMyGame.Systems.LocationCreation;
@@ -17,6 +18,7 @@ var world = new World(entityManager, componentRegistry, eventManager);
 
 // Initialize factory and systems
 var characterFactory = new CharacterFactory(entityManager, componentRegistry);
+var npcFactory = new NpcFactory(entityManager, componentRegistry);
 var characterCreationSystem = new PlayerCharacterCreationSystem(characterFactory, entityManager, eventManager);
 var locationFactory = new LocationFactory(entityManager);
 var locationCreationSystem = new LocationCreationSystem(locationFactory, entityManager, eventManager);
