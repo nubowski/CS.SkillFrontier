@@ -31,7 +31,6 @@ public class NpcFactory
         entity.AddComponent(new CharacterComponent());
         entity.AddComponent(new HealthComponent());
         entity.AddComponent(new LevelComponent());
-        entity.AddComponent(new RaceComponent());
         // entity.AddComponent(new CharacterTypeComponent);
 
         // NPC-specific components

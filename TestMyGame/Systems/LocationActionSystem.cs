@@ -1,7 +1,7 @@
 ﻿using CoreLibs.Entities;
 using CoreLibs.Events;
-using CoreLibs.Events.EventList;
 using CoreLibs.Systems;
+using CoreLibs.Utilities;
 using TestMyGame.Components;
 using TestMyGame.Events;
 
@@ -22,7 +22,11 @@ public class LocationActionSystem : BaseSystem
 
     private void HandleKeypress(KeypressEvent keypressEvent)
     {
+        Logger.Debug($"Received keypress event: {keypressEvent.Key}");
+        
         var playerEntities = _entityManager.GetEntitiesBasedOnFilter(ComponentFilter);
+        
+        Logger.Debug($"Found {playerEntities.Count} player entities");
 
         foreach (var player in playerEntities)
         {
@@ -40,6 +44,9 @@ public class LocationActionSystem : BaseSystem
                 ConsoleKey.E => LocationActionComponent.LocationAction.Explore,
                 _ => locationActionComponent.Action
             };
+            
+            Logger.Debug($"Updated action to: {locationActionComponent.Action}");
+            
         }
     }
 

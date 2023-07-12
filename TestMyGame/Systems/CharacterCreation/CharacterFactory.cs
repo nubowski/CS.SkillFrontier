@@ -32,11 +32,10 @@ public class CharacterFactory
         entity.AddComponent(new HealthComponent());
         entity.AddComponent(new LevelComponent());
         entity.AddComponent(new RaceComponent());
-        entity.AddComponent(new NameComponent());
         entity.AddComponent(new GenderComponent());
         entity.AddComponent(new GpsComponent());
         entity.AddComponent(new PositionComponent());
-        
+
         // TODO make this grouped `by` or Im not sure how to handle dozens of different unclassified components on `live`
         
         return entity;

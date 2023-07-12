@@ -51,10 +51,10 @@ public class PlayerCharacterCreationSystem : BaseSystem
 
         var character = _characterFactory.CreateCharacter();
 
-        character.GetComponent<NameComponent>().Name = name;
         character.GetComponent<RaceComponent>().Race = race;
         character.GetComponent<GenderComponent>().Gender = gender;
-        
+
+        character.AddComponent(new NameComponent(name));
         character.AddComponent(new PlayerComponent());
         character.AddComponent(new ExperienceComponent());
         
