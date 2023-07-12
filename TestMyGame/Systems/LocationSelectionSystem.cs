@@ -50,7 +50,7 @@ public class LocationSelectionSystem : BaseSystem
             var locationComponent = entity.GetComponent<LocationComponent>();
             Console.WriteLine($"{index} - {locationComponent.Name}");
 
-            // Store the index-entity mapping in the dictionary
+            // index-entity mapping in the dictionary
             locationDict.Add(index, entity);
 
             index++;
@@ -61,9 +61,9 @@ public class LocationSelectionSystem : BaseSystem
         if (locationDict.ContainsKey(locationChoice))
         {
             var selectedLocationEntity = locationDict[locationChoice];
-            var selectedLocationComponent = selectedLocationEntity.GetComponent<LocationComponent>();
         
-            Console.WriteLine($"{selectedLocationComponent.Name} was selected!");
+            // emits event here
+            _eventManager.Emit(new LocationSelectedEvent(selectedLocationEntity));
         }
         else
         {

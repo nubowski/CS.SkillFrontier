@@ -30,12 +30,12 @@ public class CharacterFactory
         // Common components
         entity.AddComponent(new CharacterComponent());
         entity.AddComponent(new HealthComponent());
-        entity.AddComponent(new ExperienceComponent());
         entity.AddComponent(new LevelComponent());
-        entity.AddComponent(new PositionComponent());
         entity.AddComponent(new RaceComponent());
         entity.AddComponent(new NameComponent());
         entity.AddComponent(new GenderComponent());
+        entity.AddComponent(new GpsComponent());
+        entity.AddComponent(new PositionComponent());
         
         // TODO make this grouped `by` or Im not sure how to handle dozens of different unclassified components on `live`
         

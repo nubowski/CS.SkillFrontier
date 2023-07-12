@@ -17,10 +17,11 @@ var world = new World(entityManager, componentRegistry, eventManager);
 
 // Initialize factory and systems
 var characterFactory = new CharacterFactory(entityManager, componentRegistry);
-var characterCreationSystem = new CharacterCreationSystem(characterFactory, entityManager, eventManager);
+var characterCreationSystem = new PlayerCharacterCreationSystem(characterFactory, entityManager, eventManager);
 var locationFactory = new LocationFactory(entityManager);
 var locationCreationSystem = new LocationCreationSystem(locationFactory, entityManager, eventManager);
 var locationSelectionSystem = new LocationSelectionSystem(entityManager, eventManager);
+var navigationSystem = new NavigationSystem(entityManager, eventManager);
 var actionSelectionSystem = new ActionSelectionSystem(entityManager, eventManager);
 var combatSystem = new CombatSystem(entityManager, eventManager);
 var tooltipSystem = new TooltipSystem(entityManager, eventManager);
@@ -30,7 +31,8 @@ var tooltipSystem = new TooltipSystem(entityManager, eventManager);
 // Add systems to the world
 world.AddSystem(characterCreationSystem);
 world.AddSystem(locationCreationSystem);
-world.AddSystem(locationSelectionSystem); 
+world.AddSystem(locationSelectionSystem);
+world.AddSystem(navigationSystem);
 world.AddSystem(actionSelectionSystem); 
 world.AddSystem(combatSystem); 
 world.AddSystem(tooltipSystem); 
