@@ -1,18 +1,106 @@
 ﻿[
   {
     "name": "Enchanted Forest",
-    "description": "A magical forest filled with mysterious creatures."
+    "description": "A magical forest filled with mysterious creatures.",
+    "biome": "Forest",
+    "level": 2,
+    "npcPool": [
+      {
+        "type": "race",
+        "value": "Goblin",
+        "weight": 3,
+        "description": "Goblins often gather here to plot their next mischief."
+      },
+      {
+        "type": "race",
+        "value": "Elf",
+        "weight": 2,
+        "description": "Elves are known to protect these sacred woods."
+      },
+      {
+        "type": "name",
+        "value": "Forest Troll",
+        "weight": 1,
+        "description": "Seldom, trolls venture out into these parts of the forest."
+      }
+    ]
   },
   {
     "name": "Haunted Castle",
-    "description": "An ancient castle, rumored to be haunted by vengeful spirits."
+    "description": "An ancient castle, rumored to be haunted by vengeful spirits.",
+    "biome": "Castle",
+    "level": 4,
+    "npcPool": [
+      {
+        "type": "race",
+        "value": "Ghost",
+        "weight": 2,
+        "description": "The spirits of the former inhabitants are said to still haunt these halls."
+      },
+      {
+        "type": "race",
+        "value": "Vampire",
+        "weight": 1,
+        "description": "Vampires are rumored to stalk the night in this cursed place."
+      },
+      {
+        "type": "name",
+        "value": "Ancient Lich",
+        "weight": 1,
+        "description": "A powerful lich is said to rule over the castle's horrors."
+      }
+    ]
   },
   {
     "name": "Dragon's Den",
-    "description": "A treacherous cave dwelling where an ancient and powerful dragon resides."
+    "description": "A treacherous cave dwelling where an ancient and powerful dragon resides.",
+    "biome": "Cave",
+    "level": 5,
+    "npcPool": [
+      {
+        "type": "race",
+        "value": "Dragon",
+        "weight": 1,
+        "description": "This den is home to a powerful and ancient dragon."
+      },
+      {
+        "type": "race",
+        "value": "Goblin",
+        "weight": 2,
+        "description": "Goblins often find refuge in the protection of the dragon."
+      },
+      {
+        "type": "name",
+        "value": "Cave Troll",
+        "weight": 2,
+        "description": "Trolls adapted to the darkness of caves sometimes inhabit these parts."
+      }
+    ]
   },
   {
     "name": "Mystic River",
-    "description": "A serene river known for its magical healing properties."
+    "description": "A serene river known for its magical healing properties.",
+    "biome": "River",
+    "level": 3,
+    "npcPool": [
+      {
+        "type": "race",
+        "value": "Elemental",
+        "weight": 2,
+        "description": "Water elementals are drawn to the river's magic."
+      },
+      {
+        "type": "race",
+        "value": "Human",
+        "weight": 2,
+        "description": "Fishermen and other folk are often found by the river."
+      },
+      {
+        "type": "name",
+        "value": "River Serpent",
+        "weight": 1,
+        "description": "Rarely, serpents rise from the river's depths."
+      }
+    ]
   }
 ]

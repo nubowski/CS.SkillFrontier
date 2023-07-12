@@ -1,8 +1,80 @@
 ﻿[
   {
+    "name": "Wild Elf Ranger",
+    "description": "An agile elf adept at surviving in the wilderness. Proficient with a bow.",
+    "race": "Elf",
+    "weight": 3,
+    "biomes": [],
+    "combatPhrases": [
+      "The elf nocks an arrow and takes aim!",
+      "With a swift movement, the elf releases the arrow!",
+      "The elf draws a short sword and moves in for close combat!",
+      "The elf uses their surroundings to their advantage!",
+      "Quick and silent, the elf attacks from the shadows!"
+    ]
+  },
+  {
+    "name": "Elf Enchanter",
+    "description": "A powerful elf mage skilled in the art of enchanting. Can cast powerful magic.",
+    "race": "Elf",
+    "weight": 2,
+    "biomes": [],
+    "combatPhrases": [
+      "The enchanter starts muttering an incantation!",
+      "A powerful bolt of magic shoots from the enchanter's staff!",
+      "The enchanter surrounds themselves with a shield of magic!",
+      "With a wave of their staff, the enchanter sends you flying!",
+      "The enchanter enchants their weapon and attacks!"
+    ]
+  },
+  {
+    "name": "River Serpent",
+    "description": "This aquatic beast is known for its swift movements and deadly strikes, making it a fearsome opponent for those who venture near the water.",
+    "race": "Beast",
+    "weight": 1,
+    "biomes": [],
+    "combatPhrases": [
+      "River Serpent lunges from the water and tries to coil around you!",
+      "River Serpent spits a stream of venomous water at you!",
+      "River Serpent strikes with blinding speed, its fangs aiming for a vital spot!",
+      "River Serpent's scales reflect the sunlight, momentarily blinding you!",
+      "River Serpent submerges then reemerges for a surprise attack!"
+    ]
+  },
+  {
+    "name": "Water Elemental",
+    "description": "A mystical creature composed entirely of water. It's capable of changing shape and using water-based magic.",
+    "race": "Elemental",
+    "weight": 1,
+    "biomes": [],
+    "combatPhrases": [
+      "Water Elemental forms a giant wave and attempts to sweep you off your feet!",
+      "Water Elemental condenses into a solid form and strikes!",
+      "Water Elemental turns the surrounding moisture into ice spears and launches them at you!",
+      "Water Elemental engulfs you, attempting to drown you on dry land!",
+      "Water Elemental evaporates and condenses behind you for a surprise attack!"
+    ]
+  },
+  {
+    "name": "Forest Troll",
+    "description": "This massive, beastly troll thrives in dense woodlands. It's particularly resistant and possesses significant strength, but it isn't too bright.",
+    "race": "Troll",
+    "weight": 1,
+    "biomes": [],
+    "combatPhrases": [
+      "Forest Troll roars and attempts to hit you with a tree trunk!",
+      "Forest Troll charges at you, intending to crush you with its weight!",
+      "Forest Troll picks up a rock and hurls it at you!",
+      "Forest Troll digs its feet into the ground, preparing for a mighty attack!",
+      "Forest Troll bellows loudly, attempting to intimidate you!"
+    ]
+  },
+  {
     "name": "Cave Goblin",
     "description": "A small, green-skinned creature lurking in the shadows of the cave. Known for its agility and cunning.",
     "race": "Goblin",
+    "weight": 3,
+    "biomes": [],
     "combatPhrases": [
       "Goblin snarls and lunges at you!",
       "Goblin attempts to sneak around and attack you from behind!",
@@ -15,6 +87,8 @@
     "name": "Forest Treant",
     "description": "An ancient forest guardian that resembles a large tree. Possesses formidable strength and durability.",
     "race": "Plant",
+    "weight": 2,
+    "biomes": [],
     "combatPhrases": [
       "Treant's branches sway menacingly as it advances!",
       "Treant attempts to squash you under its massive trunk!",
@@ -27,6 +101,8 @@
     "name": "Mountain Troll",
     "description": "A towering troll native to mountainous areas. Highly resistant and incredibly strong, but slow and not particularly smart.",
     "race": "Troll",
+    "weight": 1,
+    "biomes": [],
     "combatPhrases": [
       "Troll roars and charges at you with incredible force!",
       "Troll swings its massive club, aiming to crush you!",
@@ -39,6 +115,8 @@
     "name": "Swamp Hydra",
     "description": "A multi-headed beast lurking in swampy areas. Dangerous and resilient, but susceptible to fire.",
     "race": "Beast",
+    "weight": 1,
+    "biomes": [],
     "combatPhrases": [
       "Hydra hisses and all of its heads attack at once!",
       "Hydra spits venom in your direction!",
@@ -51,12 +129,112 @@
     "name": "Desert Scorpion",
     "description": "A giant scorpion native to desert regions. Fast, agile and poisonous, but not very resistant.",
     "race": "Insect",
+    "weight": 3,
+    "biomes": [],
     "combatPhrases": [
       "Scorpion lunges at you with its poisonous stinger!",
       "Scorpion tries to grab you with its pincers!",
       "Sand swirls around as Scorpion scuttles and attacks!",
       "Scorpion burrows under the sand, then attempts a surprise attack!",
       "Scorpion clicks its pincers menacingly as it circles you!"
+    ]
+  },
+  {
+    "name": "Elf Ranger",
+    "description": "An expert in wilderness survival and archery. This elf is as silent as the wind and twice as swift.",
+    "race": "Elf",
+    "weight": 3,
+    "biomes": [],
+    "combatPhrases": [
+      "Elf Ranger nocks an arrow and aims for your weak spot!",
+      "Elf Ranger uses the forest to their advantage and strikes from the shadows!",
+      "Elf Ranger quickly dodges your attack and counters!",
+      "Elf Ranger distracts you with a feint, then follows with a swift strike!",
+      "Elf Ranger leaps back and fires a volley of arrows!"
+    ]
+  },
+  {
+    "name": "Elf Mage",
+    "description": "This elf has spent centuries studying magic, becoming a formidable mage with a variety of powerful spells at their disposal.",
+    "race": "Elf",
+    "weight": 2,
+    "biomes": [],
+    "combatPhrases": [
+      "Elf Mage chants an incantation and a fireball springs from their hands!",
+      "Elf Mage evokes a protective spell to deflect your attacks!",
+      "Elf Mage raises their staff and a bolt of lightning strikes you!",
+      "Elf Mage conjures a blinding light, trying to disorient you!",
+      "Elf Mage teleports and reappears behind you to attack!"
+    ]
+  },
+  {
+    "name": "Human Warrior",
+    "description": "A seasoned warrior with immense physical strength and a mastery of weapons.",
+    "race": "Human",
+    "weight": 3,
+    "biomes": [],
+    "combatPhrases": [
+      "Human Warrior lunges at you with his sword!",
+      "Human Warrior blocks your attack and retaliates with a heavy blow!",
+      "Human Warrior executes a flurry of attacks, leaving no room to breathe!",
+      "Human Warrior shouts a battle cry, boosting his morale and ferocity!",
+      "Human Warrior expertly parries your attack and tries to trip you!"
+    ]
+  },
+  {
+    "name": "Human Thief",
+    "description": "A skilled rogue known for his agility and knack for stealth. This human prefers quick, surprise attacks and aims to strike where it hurts the most.",
+    "race": "Human",
+    "weight": 2,
+    "biomes": [],
+    "combatPhrases": [
+      "Human Thief strikes from the shadows, trying to catch you off guard!",
+      "Human Thief darts around, making him hard to hit!",
+      "Human Thief tries to disarm you with a swift strike!",
+      "Human Thief throws a smoke bomb, obscuring your vision!",
+      "Human Thief aims for your pockets, attempting to steal your items mid-fight!"
+    ]
+  },
+  {
+    "name": "Spectral Ghost",
+    "description": "An ethereal entity that floats eerily, casting an unnerving chill around itself. Known for its evasiveness and chilling attacks.",
+    "race": "Ghost",
+    "weight": 3,
+    "biomes": [],
+    "combatPhrases": [
+      "Spectral Ghost phases through walls and launches a surprise attack!",
+      "Spectral Ghost's eerie wail sends chills down your spine!",
+      "Spectral Ghost uses its ethereal form to evade your attacks!",
+      "Spectral Ghost floats eerily, its eyes glowing ominously as it prepares to strike!",
+      "Spectral Ghost surrounds you with a chilling aura, sapping your strength!"
+    ]
+  },
+  {
+    "name": "Crypt Lich",
+    "description": "An ancient, skeletal figure shrouded in dark robes, known for its mastery of necromantic magic and its chilling gaze.",
+    "race": "Lich",
+    "weight": 1,
+    "biomes": [],
+    "combatPhrases": [
+      "Crypt Lich raises its arms and the dead rise to its command!",
+      "Crypt Lich weaves a complex spell, draining your life force!",
+      "Crypt Lich fixes you with a chilling gaze, paralyzing you with fear!",
+      "Crypt Lich's fingers crackle with dark energy as it prepares to strike!",
+      "Crypt Lich's laughter echoes eerily as it summons a spectral shield!"
+    ]
+  },
+  {
+    "name": "Vampire Lord",
+    "description": "A creature of the night known for its charm, strength, speed, and thirst for blood. The Vampire Lord is both terrifying and captivating.",
+    "race": "Vampire",
+    "weight": 2,
+    "biomes": [],
+    "combatPhrases": [
+      "Vampire Lord moves with supernatural speed and strikes!",
+      "Vampire Lord gazes into your eyes, attempting to mesmerize you!",
+      "Vampire Lord transforms into a bat, evading your attacks!",
+      "Vampire Lord reveals his fangs, preparing to feed!",
+      "Vampire Lord laughs maniacally as he regains strength from your blood!"
     ]
   }
 ]
