@@ -6,10 +6,10 @@ public class LocationActionComponent : IComponent
 {
     public enum LocationAction
     {
+        Idle,
         Grind,
         Stop,
-        Explore,
-        Idle
+        Explore
     }
 
     public LocationAction Action { get; set; }

@@ -8,7 +8,17 @@ public class RaceComponent : IComponent
     {
         Human,
         Orc,
-        Beast
+        Beast,
+        Plant,
+        Goblin,
+        Troll,
+        Insect,
+        Elf,
+        Elemental,
+        Vampire,
+        Lich,
+        Ghost,
+        Dragon
     }
 
     public RaceType Race { get; set; }
