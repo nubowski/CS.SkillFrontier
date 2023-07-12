@@ -7,7 +7,8 @@ public class RaceComponent : IComponent
     public enum RaceType
     {
         Human,
-        Orc
+        Orc,
+        Beast
     }
 
     public RaceType Race { get; set; }
