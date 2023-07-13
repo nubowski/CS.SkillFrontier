@@ -1,5 +1,5 @@
 ﻿using CoreLibs;
-using CoreLibs.Entities;
+using CoreLibs.Core;
 using CoreLibs.Events;
 using TestMyGame.Events;
 using TestMyGame.Systems;

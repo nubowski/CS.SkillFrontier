@@ -1,6 +1,5 @@
-﻿using CoreLibs.Entities;
+﻿using CoreLibs.Core;
 using CoreLibs.Events;
-using CoreLibs.Systems;
 using TestMyGame.Components;
 
 namespace TestMyGame.Systems;

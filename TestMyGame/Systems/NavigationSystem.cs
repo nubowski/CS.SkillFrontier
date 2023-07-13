@@ -1,7 +1,6 @@
-﻿using CoreLibs.Entities;
+﻿using CoreLibs.Core;
 using CoreLibs.Events;
 using CoreLibs.Events.EventList;
-using CoreLibs.Systems;
 using CoreLibs.Utilities;
 using TestMyGame.Components;
 using TestMyGame.Events;

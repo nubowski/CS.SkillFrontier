@@ -1,8 +1,7 @@
 ﻿using AsciiRenderer.Components;
 using AsciiRenderer.Interfaces;
-using CoreLibs.Entities;
+using CoreLibs.Core;
 using CoreLibs.Events;
-using CoreLibs.Systems;
 
 namespace AsciiRenderer.Systems;
 

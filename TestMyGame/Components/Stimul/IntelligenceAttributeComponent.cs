@@ -1,4 +1,4 @@
-﻿using CoreLibs.Components;
+﻿using CoreLibs.Core;
 
 namespace TestMyGame.Components.Stimul;
 

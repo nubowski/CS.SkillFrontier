@@ -1,5 +1,4 @@
-﻿using CoreLibs.Components;
-using CoreLibs.Entities;
+﻿using CoreLibs.Core;
 
 namespace TestMyGame.Components;
 

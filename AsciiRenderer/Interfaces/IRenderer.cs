@@ -1,4 +1,4 @@
-﻿using CoreLibs.Entities;
+﻿using CoreLibs.Core;
 
 namespace AsciiRenderer.Interfaces;
 

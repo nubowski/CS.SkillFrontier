@@ -1,4 +1,4 @@
-﻿using CoreLibs.Entities;
+﻿using CoreLibs.Core;
 using TestMyGame.Components;
 
 namespace TestMyGame.Systems.LocationCreation;
