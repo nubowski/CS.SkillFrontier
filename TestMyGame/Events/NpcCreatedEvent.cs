@@ -5,10 +5,13 @@ namespace TestMyGame.Events;
 
 public class NpcCreatedEvent : IEvent
 {
-    public Entity Npc { get; set; }
-
-    public NpcCreatedEvent(Entity npc)
+    public NpcCreatedEvent(Entity npc, Entity player)
     {
         Npc = npc;
+        Player = player;
     }
+
+    public Entity Npc { get; set; }
+    public Entity Player { get; set; }
+    
 }

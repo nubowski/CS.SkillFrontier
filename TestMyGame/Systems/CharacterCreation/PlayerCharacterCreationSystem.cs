@@ -60,6 +60,7 @@ public class PlayerCharacterCreationSystem : BaseSystem
         
         Console.WriteLine($"{name} the {race} {gender} was created!");
         _eventManager.Emit(new CharacterCreationFinishedEvent(character));
+        _eventManager.Emit(new StatsUpdatedEvent(character));
     }
 
     public override void ProcessEntity(Entity entity, float deltaTime)

@@ -111,11 +111,11 @@ namespace TestMyGame.Systems.CharacterCreation
             {
                 Logger.Debug($"There are no such races in our data base");
             }
-            
+            _eventManager.Emit(new StatsUpdatedEvent(npc));
             // Customization logic goes here.
             
             // Emit the event to go to combat system
-            _eventManager.Emit(new NpcCreatedEvent(npc));
+            _eventManager.Emit(new NpcCreatedEvent(npc, player));
         }
 
         private NpcData SelectNpcFromPool(List<NpcData> npcPool)

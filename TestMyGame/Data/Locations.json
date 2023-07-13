@@ -70,8 +70,8 @@
         "description": "Goblins often find refuge in the protection of the dragon."
       },
       {
-        "type": "name",
-        "value": "Cave Troll",
+        "type": "race",
+        "value": "Troll",
         "weight": 2,
         "description": "Trolls adapted to the darkness of caves sometimes inhabit these parts."
       }
