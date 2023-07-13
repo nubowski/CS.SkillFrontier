@@ -23,6 +23,15 @@
       <None Update="Data\Bestiary.json">
         <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       </None>
+      <None Remove="exSystems\**" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Compile Remove="exSystems\**" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <EmbeddedResource Remove="exSystems\**" />
     </ItemGroup>
 
 </Project>

@@ -1,9 +1,8 @@
 ﻿using CoreLibs;
 
-
 namespace TestMyGame.Components;
 
-public class NPCTypeComponent : IComponent
+public class CharacterCreationRequestComponent : IComponent
 {
     
 }

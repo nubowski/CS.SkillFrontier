@@ -16,4 +16,9 @@ public class Logger
             Console.WriteLine(message);
         }
     }
+
+    public static void Game(string message)
+    {
+        Console.WriteLine(message);
+    }
 }

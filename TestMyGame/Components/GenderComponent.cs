@@ -1,4 +1,4 @@
-﻿using CoreLibs.Core;
+﻿using CoreLibs;
 
 namespace TestMyGame.Components;
 
@@ -9,5 +9,6 @@ public class GenderComponent : IComponent
         Male,
         Female
     }
+
     public GenderType Gender { get; set; }
 }

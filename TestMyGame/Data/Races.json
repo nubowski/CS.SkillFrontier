@@ -1,0 +1,54 @@
+﻿[
+  {
+    "id": "human",
+    "name": "Human"
+  },
+  {
+    "id": "orc",
+    "name": "Orc"
+  },
+  {
+    "id": "beast",
+    "name": "Beast"
+  },
+  {
+    "id": "plant",
+    "name": "Plant"
+  },
+  {
+    "id": "goblin",
+    "name": "Goblin"
+  },
+  {
+    "id": "troll",
+    "name": "Troll"
+  },
+  {
+    "id": "insect",
+    "name": "Insect"
+  },
+  {
+    "id": "elf",
+    "name": "Elf"
+  },
+  {
+    "id": "elemental",
+    "name": "Elemental"
+  },
+  {
+    "id": "vampire",
+    "name": "Vampire"
+  },
+  {
+    "id": "lich",
+    "name": "Lich"
+  },
+  {
+    "id": "ghost",
+    "name": "Ghost"
+  },
+  {
+    "id": "dragon",
+    "name": "Dragon"
+  }
+]

@@ -1,6 +1,8 @@
-﻿namespace TestMyGame.Components;
+﻿using CoreLibs;
 
-public class DamageComponent
+namespace TestMyGame.Components;
+
+public class DamageComponent : IComponent
 {
     public float Damage { get; set; }
 }

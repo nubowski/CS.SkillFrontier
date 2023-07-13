@@ -1,9 +1,8 @@
-﻿using System.ComponentModel;
-using IComponent = CoreLibs.Core.IComponent;
+﻿using CoreLibs;
 
 namespace TestMyGame.Components;
 
-public class PositionComponent : CoreLibs.Core.IComponent
+public class PositionComponent : IComponent
 {
     public int CurrentLocationId { get; set; }
 }

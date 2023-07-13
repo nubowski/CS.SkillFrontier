@@ -1,4 +1,4 @@
-﻿using CoreLibs.Core;
+﻿using CoreLibs;
 
 namespace TestMyGame.Components;
 
@@ -6,10 +6,6 @@ public class LocationComponent : IComponent
 {
     public string Name { get; set; }
     public string Description { get; set; }
-
-    public LocationComponent(string name, string description)
-    {
-        Name = name;
-        Description = description;
-    }
+    public string Biome { get; set; }
+    public int Level { get; set; }
 }

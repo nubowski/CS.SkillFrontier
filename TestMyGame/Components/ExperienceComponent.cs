@@ -1,4 +1,4 @@
-﻿using CoreLibs.Core;
+﻿using CoreLibs;
 
 namespace TestMyGame.Components;
 

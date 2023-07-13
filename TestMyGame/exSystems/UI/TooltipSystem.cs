@@ -1,9 +1,7 @@
-﻿using CoreLibs.Core;
-using CoreLibs.Events;
-using CoreLibs.Events.EventList;
+﻿using CoreLibs;
 using TestMyGame.Components;
 using TestMyGame.Components.Stimul;
-using TestMyGame.Events;
+
 
 namespace TestMyGame.Systems.UI;
 

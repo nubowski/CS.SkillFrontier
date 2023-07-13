@@ -1,71 +1,30 @@
-﻿using CoreLibs;
-using CoreLibs.Core;
-using CoreLibs.Events;
-using TestMyGame.Events;
+﻿using System.Diagnostics;
+using CoreLibs;
 using TestMyGame.Systems;
-using TestMyGame.Systems.CharacterCreation;
-using TestMyGame.Systems.IdleCombat;
-using TestMyGame.Systems.LocationCreation;
-using TestMyGame.Systems.UI;
 
-// Initialize entities, components and events management
-var componentRegistry = new ComponentRegistry();
-var eventManager = new EventManager();
-var entityManager = new EntityManager(componentRegistry, eventManager);
+// create an instance of the World
+var world = new World();
 
-// Initialize our world
-var world = new World(entityManager, componentRegistry, eventManager);
+// add systems to the World
+// substitute the actual types of systems here
+world.AddSystem(new PlayerCharacterCreationRequestSystem());
+world.AddSystem(new LocationCreationSystem());
+world.AddSystem(new CharacterCreationSystem());
 
-// Initialize factory and systems
-var characterFactory = new CharacterFactory(entityManager, componentRegistry);
-var npcFactory = new NpcFactory(entityManager, componentRegistry);
-var characterCreationSystem = new PlayerCharacterCreationSystem(characterFactory, entityManager, eventManager);
-var npcCreationSystem = new NpcCreationSystem(npcFactory, entityManager, eventManager);
-var locationFactory = new LocationFactory(entityManager);
-var locationCreationSystem = new LocationCreationSystem(locationFactory, entityManager, eventManager);
-var locationSelectionSystem = new LocationSelectionSystem(entityManager, eventManager);
-var locationActionSystem = new LocationActionSystem(entityManager, eventManager);
-var locationActionProcessingSystem = new LocationActionProcessingSystem(entityManager, eventManager);
-var navigationSystem = new NavigationSystem(entityManager, eventManager);
-var grindingSystem = new GrindingSystem(entityManager, eventManager);
-var actionSelectionSystem = new ActionSelectionSystem(entityManager, eventManager);
-var combatSystem = new CombatSystem(entityManager, eventManager);
-var tooltipSystem = new TooltipSystem(entityManager, eventManager);
+// awake the systems in the World
+world.AwakeSystems();
 
-//--------------------------------------------------------------------------------------------------------------------//
+// create a Stopwatch to measure time between frames
+var stopwatch = new Stopwatch();
+stopwatch.Start();
 
-// Add systems to the world
-world.AddSystem(characterCreationSystem);
-world.AddSystem(npcCreationSystem);
-world.AddSystem(locationCreationSystem);
-world.AddSystem(locationSelectionSystem);
-world.AddSystem(locationActionSystem);
-world.AddSystem(navigationSystem);
-world.AddSystem(locationActionProcessingSystem);
-world.AddSystem(actionSelectionSystem); 
-world.AddSystem(combatSystem); 
-world.AddSystem(tooltipSystem);
-world.AddSystem(grindingSystem);
-
-// Disable the systems that should not be active at the start of the game
-locationCreationSystem.Enabled = true;
-locationSelectionSystem.Enabled = false;
-actionSelectionSystem.Enabled = false;
-
-// Game loop
+// start the main game loop
 while (true)
 {
-    var deltaTime = 0.1f; // Just an example, you may want to calculate this properly
-    
-    
-    // Update LocationActionProcessingSystem
-    locationActionProcessingSystem.Update(deltaTime);
-    
-    if (Console.KeyAvailable)
-    {
-        var key = Console.ReadKey(true).Key;
-        eventManager.Emit(new KeypressEvent(key));
-    }
-    
-    world.Update(deltaTime);
+    // calc deltaTime (time in seconds since last frame)
+    var deltaTime = (float)stopwatch.Elapsed.TotalSeconds;
+    stopwatch.Restart();
+
+    // call the UpdateSystems method with calculated deltaTime
+    world.UpdateSystems(deltaTime);
 }
